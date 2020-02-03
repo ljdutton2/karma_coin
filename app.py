@@ -33,7 +33,9 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 'Dessert', 'Frozen dessert', 'Baked goods', 'Comfort food', 'Staple food', 'Recipe', 'Italian food',
 'Vegetarian food', 'American food', 'Vegetable', 'Plant', 'Natural foods', 'Fruit', 'Superfood',
 'Red', 'Banana family', 'Yellow', 'Citrus', 'Citric acid', 'Side dish', 'Local food', 'Juice',
-'Drink', 'Orange drink', 'Breakfast', 'Meal', 'Lunch', 'Dinner', 'Bilberry', 'Hendl', 'Kai yang']
+'Drink', 'Orange drink', 'Breakfast', 'Meal', 'Lunch', 'Dinner', 'Bilberry', 'Hendl', 'Kai yang'
+'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
+'Herb', 'Grass']
 
 print(r.json())
 
