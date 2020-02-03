@@ -1,4 +1,3 @@
-git commit -am 'typos commit'
+git commit -am 'Merging typos into dev'
 git checkout dev
-git commit -am 'merging dev into typos'
 git merge typos

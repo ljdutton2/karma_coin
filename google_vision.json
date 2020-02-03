@@ -1,0 +1,17 @@
+{
+ "requests":[
+    {
+      "image":{
+      "source":{
+      "imageUri":
+      "gs://cloud-samples-data/vision/using_curl/shanghai.jpeg"
+         }
+     },
+       "features": [{
+         "type": "LABEL_DETECTION",
+         "maxResults": 10
+     }
+    ]
+   }
+  ]
+}
