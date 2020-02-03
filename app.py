@@ -1,7 +1,10 @@
 from google.cloud import vision
 import os
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="env/key.json"
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 image_uri = 'gs://cloud-samples-data/vision/using_curl/shanghai.jpeg'
 
 client = vision.ImageAnnotatorClient()
@@ -18,10 +21,13 @@ for label in response.label_annotations:
 # curl -v -s -H "Content-Type: application/json" https://vision.googleapis.com/v1/images:annotate\?key\=AIzaSyDgxl6eCbmb-lAPrnd1NTcsCTTMQHd4_aU --data-binary @google_vision.json > results
 
 #Retrieves raw scores
-url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDgxl6eCbmb-lAPrnd1NTcsCTTMQHd4_aU'
+url = 'https://vision.googleapis.com/v1/images:annotate?'
 payload = open("google_vision.json")
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-r = requests.post(url, data=payload, headers=headers)
+params = {
+    'key': GOOGLE_API_KEY
+    }
+r = requests.post(url, data=payload, headers=headers, params=params)
 
 labels = ['People']
 
