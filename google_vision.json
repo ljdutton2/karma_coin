@@ -4,7 +4,7 @@
       "image":{
       "source":{
       "imageUri":
-      "gs://cloud-samples-data/vision/using_curl/shanghai.jpeg"
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/10/16/0/DV2904_Korean-BBQ-Burrito_s4x3.jpg.rend.hgtvcom.826.620.suffix/1539714414867.jpeg"
          }
      },
        "features": [{
