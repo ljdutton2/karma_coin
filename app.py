@@ -1,6 +1,8 @@
+from flask import Flask, render_template
 from google.cloud import vision
 import os
 import requests
+import json
 from dotenv import load_dotenv
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -21,24 +23,33 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 #
 # curl -v -s -H "Content-Type: application/json" https://vision.googleapis.com/v1/images:annotate\?key\=AIzaSyDgxl6eCbmb-lAPrnd1NTcsCTTMQHd4_aU --data-binary @google_vision.json > results
 # Retrieves raw scores
-url = 'https://vision.googleapis.com/v1/images:annotate?'
-payload = open("google_vision.json")
-headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-params = {
-    'key': GOOGLE_API_KEY
-    }
-r = requests.post(url, data=payload, headers=headers, params=params)
+app = Flask(__name__)
 
-labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Meat', 'Produce',
-'Dessert', 'Frozen dessert', 'Baked goods', 'Comfort food', 'Staple food', 'Recipe', 'Italian food',
-'Vegetarian food', 'American food', 'Vegetable', 'Plant', 'Natural foods', 'Fruit', 'Superfood',
-'Red', 'Banana family', 'Yellow', 'Citrus', 'Citric acid', 'Side dish', 'Local food', 'Juice',
-'Drink', 'Orange drink', 'Breakfast', 'Meal', 'Lunch', 'Dinner', 'Bilberry', 'Hendl', 'Kai yang'
-'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
-'Herb', 'Grass']
+@app.route('/')
+def home_page():
 
-print(r.json())
+    url = 'https://vision.googleapis.com/v1/images:annotate?'
+    payload = open("google_vision.json")
+    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+    params = {
+        'key': GOOGLE_API_KEY
+        }
+    r = requests.post(url, data=payload, headers=headers, params=params)
 
+    labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Meat', 'Produce',
+    'Dessert', 'Frozen dessert', 'Baked goods', 'Comfort food', 'Staple food', 'Recipe', 'Italian food',
+    'Vegetarian food', 'American food', 'Vegetable', 'Plant', 'Natural foods', 'Fruit', 'Superfood',
+    'Red', 'Banana family', 'Yellow', 'Citrus', 'Citric acid', 'Side dish', 'Local food', 'Juice',
+    'Drink', 'Orange drink', 'Breakfast', 'Meal', 'Lunch', 'Dinner', 'Bilberry', 'Hendl', 'Kai yang'
+    'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
+    'Herb', 'Grass']
+
+    return render_template("index.html", stuff=labels)
+
+#print(r.json())
+
+'''
 for i in range(10):
     if r.json()['responses'][0]['labelAnnotations'][i]['description'] not in labels:
         print(r.json()['responses'][0]['labelAnnotations'][i]['description'])
+'''
