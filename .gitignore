@@ -1,14 +1,5 @@
 # Ignore Mac system files
-__pycache__
-.pyc
-
-.DS_STORE
-env/
-.vscode/
-.DS_STORE
-bin
-include
-lib
+.DS_Store
 
 # Ignore env folder
 env
