@@ -3,6 +3,8 @@
 
 # Ignore env folder
 env
+venv
+__pycache__
 
 # Ignore files related to API keys
 .env
