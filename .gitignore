@@ -5,7 +5,7 @@
 env
 venv
 __pycache__
-.vscode
+.vscode/
 
 # Ignore files related to API keys
 .env
