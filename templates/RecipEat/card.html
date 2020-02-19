@@ -16,11 +16,11 @@
     </div>
 
     <div class="title">
-        <h5 class="card-title"><a href="{% url 'recipe-details-page' page.slug %}" title="Read More">{{ page.title }}</a></h5>
+        <h5 class="card-title"><a href="{% url 'recipe-details-page' page.slug %}" title="Read More">{{ thing.title }}</a></h5>
     </div>
 
     <div class="textbox" aria-placeholder="recipe / ingredients">
-        <p class="card-text">{{ page.content|truncatewords_html:30 }}
+        <p class="card-text">{{ thing.content|truncatewords_html:30 }}
         </p>
     </div>
 
