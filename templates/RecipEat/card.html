@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+</head>
+
+<div class="outerbox">
+
+    <div class="imagebox">
+        <!-- fig caption ??  -->
+        <!-- <a href="{url "uploads/images"></a> -->
+    </div>
+
+    <div class="title">
+        <h5 class="card-title"><a href="{% url 'recipe-details-page' page.slug %}" title="Read More">{{ page.title }}</a></h5>
+    </div>
+
+    <div class="textbox" aria-placeholder="recipe / ingredients">
+        <p class="card-text">{{ page.content|truncatewords_html:30 }}
+        </p>
+    </div>
+    
+</div>
+
+</html>
