@@ -47,6 +47,7 @@ def home_page():
     return render_template("index.html", stuff=labels)
 
 #print(r.json())
+#Will use this later as still trying to figure out how to pass JSON data
 
 '''
 for i in range(10):
