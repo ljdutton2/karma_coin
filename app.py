@@ -44,7 +44,7 @@ def home_page():
     'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
     'Herb', 'Grass']
 
-    return render_template("index.html", stuff=labels)
+    return render_template("RecipEat/base.html", stuff=labels)
 
 #print(r.json())
 #Will use this later as still trying to figure out how to pass JSON data
