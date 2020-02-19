@@ -1,25 +1,30 @@
 
 
+/* ********** MENU BAR  ************ */
 
 nav{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 50px;
 
 }
-  
-nav a:hover{
-color: black;
+
+.title {
+
+    font-size: 5em;
 }
 
 .dropdown {
+    /* display:block; */
     position: relative;
     display: inline-block;
 }
 
-
 .dropbtn {
-    background-color: rgba(250, 235, 215, 0);
+    background-color: rgba(165, 97, 42, 0);
     font-size: 3em;
     border: 1px;
 }
@@ -31,8 +36,9 @@ color: black;
 
 .dropdown-content {
 display: none;
+
 position: absolute;
-padding: 50px;
+padding: 20px 20px 20px 400px;
 border: 0px;
 margin: 0px;
 
@@ -50,10 +56,35 @@ display: block;
 font-size: 5em;
 } 
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown-content a:nth-child(1) {
+    padding: 100px 10px 10px 10px;
+}
+
+.dropdown-content a:nth-child(3) {
+    padding: 200px 10px 10px 10px;
+}
 
 
+.dropdown:hover .dropdown-content {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
+
+}
+
+
+/* ********** BODY *********** */
 body {
     background-color: rgb(252, 235, 220);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+    display: flex;
+    justify-content: space-evenly;
+
 }
