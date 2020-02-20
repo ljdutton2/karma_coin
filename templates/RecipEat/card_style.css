@@ -1,0 +1,46 @@
+
+.outerbox {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid;
+    height: 420px;
+    width: 300px;
+    margin: 10px;
+    border-radius: 0.25em;
+}
+
+.imagebox {
+    background-color: rgb(94, 94, 94);
+    justify-content: center;
+    border: 2px solid;
+    height: 210px;
+    width: 280px;
+    margin: 5px;
+    border-radius: 0.15em;
+}
+
+.title {
+    background-color: None;
+    border: 1px solid;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    height: 40px;
+    width: 280px;
+
+}
+
+.textbox {
+    background-color: None;
+    border: 1px solid;
+    color: black;
+    text-align: left;
+    justify-content: center; 
+    height: 140px;
+    width: 280px;
+    margin: 5px;
+    
+}
+

@@ -45,9 +45,10 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 @app.route('/')
 def home_page():
 
-    return render_template("index.html", stuff=labels)
+    return render_template("RecipEat/base.html", stuff=labels)
 
 #print(r.json())
+#Will use this later as still trying to figure out how to pass JSON data
 
 '''
 for i in range(10):
