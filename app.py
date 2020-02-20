@@ -25,24 +25,25 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 # Retrieves raw scores
 app = Flask(__name__)
 
+url = 'https://vision.googleapis.com/v1/images:annotate?'
+payload = open("google_vision.json")
+headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+params = {
+    'key': GOOGLE_API_KEY
+    }
+r = requests.post(url, data=payload, headers=headers, params=params)
+
+labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Meat', 'Produce',
+'Dessert', 'Frozen dessert', 'Baked goods', 'Comfort food', 'Staple food', 'Recipe', 'Italian food',
+'Vegetarian food', 'American food', 'Vegetable', 'Plant', 'Natural foods', 'Fruit', 'Superfood',
+'Red', 'Banana family', 'Yellow', 'Citrus', 'Citric acid', 'Side dish', 'Local food', 'Juice',
+'Drink', 'Orange drink', 'Breakfast', 'Meal', 'Lunch', 'Dinner', 'Bilberry', 'Hendl', 'Kai yang'
+'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
+'Herb', 'Grass']
+
+
 @app.route('/')
 def home_page():
-
-    url = 'https://vision.googleapis.com/v1/images:annotate?'
-    payload = open("google_vision.json")
-    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-    params = {
-        'key': GOOGLE_API_KEY
-        }
-    r = requests.post(url, data=payload, headers=headers, params=params)
-
-    labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Meat', 'Produce',
-    'Dessert', 'Frozen dessert', 'Baked goods', 'Comfort food', 'Staple food', 'Recipe', 'Italian food',
-    'Vegetarian food', 'American food', 'Vegetable', 'Plant', 'Natural foods', 'Fruit', 'Superfood',
-    'Red', 'Banana family', 'Yellow', 'Citrus', 'Citric acid', 'Side dish', 'Local food', 'Juice',
-    'Drink', 'Orange drink', 'Breakfast', 'Meal', 'Lunch', 'Dinner', 'Bilberry', 'Hendl', 'Kai yang'
-    'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
-    'Herb', 'Grass']
 
     return render_template("index.html", stuff=labels)
 
