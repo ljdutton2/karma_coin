@@ -44,12 +44,11 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 
 @app.route('/')
 def home_page():
-    return render_template("index.html", stuff=labels)
+    return render_template("RecipEat/base.html", stuff=labels)
 
-#print(r.json())
+print(r.json())
 
-'''
+
 for i in range(10):
     if r.json()['responses'][0]['labelAnnotations'][i]['description'] not in labels:
         print(r.json()['responses'][0]['labelAnnotations'][i]['description'])
-'''

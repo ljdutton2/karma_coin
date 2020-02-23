@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RecipEats</title>
-    <link href="base_style.css" rel="stylesheet">
+    <link href="/static/base_style.css" rel="stylesheet">
     
   </head>
   
@@ -36,7 +36,7 @@
         </div>
 
         {% for things in stuff %}
-          <li>{{ include "card.html" }}</li>
+          <li>{{ things }}</li>
         {% endfor %}
 
       {% endblock %}
