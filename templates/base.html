@@ -35,27 +35,21 @@
             <input type="submit" name="submit" value="Submit">
           </form>
         </div>
-        {% for i in range(10) %}
-          {% if stuff not in things %}
 
-            <!-- <li>{{ stuff }}</li> -->
-                        
-            <div class="outerbox">
-              <div class="imagebox">
-                  <!-- fig caption ??  -->
-                  <!-- <a href="{url "uploads/images"></a> -->
-              </div>
-              <div class="title">
-                  <h5 class="card-title">{{ stuff }}</h5>
-              </div>
-              <div class="textbox" aria-placeholder="recipe / ingredients">
-                  <p class="card-text">{{ stuff }}
-                  </p>
-              </div>
-            </div>
-
-          {% endif %}
-        {% endfor %}
+        
+        <div class="outerbox">
+          <div class="imagebox">
+              <!-- fig caption ??  -->
+              <!-- <a href="{url "uploads/images"></a> -->
+          </div>
+          <div class="title">
+              <h5 class="card-title">{{ stuff }}</h5>
+          </div>
+          <div class="textbox" aria-placeholder="recipe / ingredients">
+              <p class="card-text">{{ stuff }}
+              </p>
+          </div>
+      </div>
 
       {% endblock %}
     </main>

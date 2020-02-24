@@ -73,4 +73,4 @@ print(s_recipe.json()[0]['steps'][0]['step'])
 
 @app.route('/')
 def home_page():
-    return render_template("RecipEat/base.html", stuff=r.json()['responses'][0]['labelAnnotations'][i]['description'], things=labels)
+    return render_template("base.html", stuff=food_item)
