@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RecipEats</title>
     <link href="/static/base_style.css" rel="stylesheet">
-    
+    <link href="card_style.css" rel="stylesheet">
+
   </head>
   
   <body>
@@ -35,11 +36,25 @@
           </form>
         </div>
         {% for i in range(10) %}
-        
           {% if stuff not in things %}
-            <li>{{ stuff }}</li>
-          {% endif %}
 
+            <!-- <li>{{ stuff }}</li> -->
+                        
+            <div class="outerbox">
+              <div class="imagebox">
+                  <!-- fig caption ??  -->
+                  <!-- <a href="{url "uploads/images"></a> -->
+              </div>
+              <div class="title">
+                  <h5 class="card-title">{{ stuff }}</h5>
+              </div>
+              <div class="textbox" aria-placeholder="recipe / ingredients">
+                  <p class="card-text">{{ stuff }}
+                  </p>
+              </div>
+            </div>
+
+          {% endif %}
         {% endfor %}
 
       {% endblock %}

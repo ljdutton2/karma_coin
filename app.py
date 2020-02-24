@@ -46,9 +46,9 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 def home_page():
     return render_template("RecipEat/base.html", stuff=r.json()['responses'][0]['labelAnnotations'][i]['description'], things=labels)
 
-print(r.json())
+    # print(r.json())
 
 
-for i in range(10):
-    if r.json()['responses'][0]['labelAnnotations'][i]['description'] not in labels:
-        print(r.json()['responses'][0]['labelAnnotations'][i]['description'])
+    # for i in range(10):
+    #     if r.json()['responses'][0]['labelAnnotations'][i]['description'] not in labels:
+    #         print(r.json()['responses'][0]['labelAnnotations'][i]['description'])
