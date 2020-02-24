@@ -44,7 +44,7 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 
 @app.route('/')
 def home_page():
-    return render_template("RecipEat/base.html", stuff=labels)
+    return render_template("RecipEat/base.html", stuff=r.json()['responses'][0]['labelAnnotations'][i]['description'], things=labels)
 
 print(r.json())
 

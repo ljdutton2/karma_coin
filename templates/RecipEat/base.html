@@ -34,9 +34,12 @@
             <input type="submit" name="submit" value="Submit">
           </form>
         </div>
+        {% for i in range(10) %}
+        
+          {% if stuff not in things %}
+            <li>{{ stuff }}</li>
+          {% endif %}
 
-        {% for things in stuff %}
-          <li>{{ things }}</li>
         {% endfor %}
 
       {% endblock %}
