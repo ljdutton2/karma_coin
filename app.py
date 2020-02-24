@@ -6,6 +6,7 @@ import json
 from dotenv import load_dotenv
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+SPOONACULAR_API_KEY = os.getenv("SPOONACULAR_API_KEY")
 #
 # os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="env/key.json"
 # image_uri = 'gs://cloud-samples-data/vision/using_curl/shanghai.jpeg'
@@ -33,6 +34,27 @@ params = {
     }
 r = requests.post(url, data=payload, headers=headers, params=params)
 
+
+url_s = 'https://api.spoonacular.com/recipes/findByIngredients'
+params_s = {
+    'apiKey': SPOONACULAR_API_KEY,
+    'number': 1,
+    'ingredients': 'apple'
+    }
+s = requests.get(url_s, params=params_s)
+
+# print(s.json())
+id = s.json()[0]['id']
+
+url_s2 = f'https://api.spoonacular.com/recipes/{id}/analyzedInstructions'
+params_s2 = {
+    'apiKey': SPOONACULAR_API_KEY,
+    }
+s_recipe = requests.get(url_s2, params=params_s2)
+print(s_recipe.json()[0]['steps'][0]['step'])
+
+
+
 labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Meat', 'Produce',
 'Dessert', 'Frozen dessert', 'Baked goods', 'Comfort food', 'Staple food', 'Recipe', 'Italian food',
 'Vegetarian food', 'American food', 'Vegetable', 'Plant', 'Natural foods', 'Fruit', 'Superfood',
@@ -41,14 +63,13 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
 'Herb', 'Grass']
 
-
 @app.route('/')
 def home_page():
     return render_template("RecipEat/base.html", stuff=r.json()['responses'][0]['labelAnnotations'][i]['description'], things=labels)
 
-    # print(r.json())
-
-
-    # for i in range(10):
-    #     if r.json()['responses'][0]['labelAnnotations'][i]['description'] not in labels:
-    #         print(r.json()['responses'][0]['labelAnnotations'][i]['description'])
+# print(r.json())
+#
+#
+# for i in range(10):
+#     if r.json()['responses'][0]['labelAnnotations'][i]['description'] not in labels:
+#         print(r.json()['responses'][0]['labelAnnotations'][i]['description'])
