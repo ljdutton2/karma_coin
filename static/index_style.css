@@ -2,6 +2,8 @@
 
 body {
     background-color: rgba(230, 179, 136, 0.808);
+    font-family: Arial, Helvetica, sans-serif;
+
     display: flex;
     flex-direction: column;
     margin: 30px;
@@ -22,11 +24,19 @@ body {
 }
 
 .title-text {
+    font-size: 1em;
+}
 
+.description {
+    font-size: 2em;
 }
 
 .upload {
+    font-size: 2em;
     border: 2px solid;
+    padding: 20px;
+    justify-content: center;
+    height: 150px;
     align-items: center;
-    text-align: center;
+    text-align: center; 
 }

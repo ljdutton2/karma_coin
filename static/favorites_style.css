@@ -82,14 +82,17 @@ body {
     background-color: rgb(252, 235, 220);
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
+
 }
 
 main {
     background-color: rgba(230, 179, 136, 0.808);
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: space-evenly;
     border: 2px solid;
     height: 1000px;
+
 }
 
 .form {
