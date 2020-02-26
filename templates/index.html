@@ -9,14 +9,24 @@
 </head>
 <body>
 
-  <h1>Google Cloud Platform - Food Detection Sample</h1>
+  <div class="main-title">
+    <div class="title"
+      <h1>Google Cloud Platform - Food Detection Sample</h1>
+    </div>
+    <div class="title-text">
+      <p>This Python Flask application demonstrates App Engine Flexible, Google Cloud
+      Storage, Datastore, and the Cloud Vision API.</p>
+    </div>
+    <div class="description">
+      <ol>
+      <p>Upload an image of a dish you want to try.</p>
+      <p>RecipEat will curate its recipe for you in seconds.</p>
+      <p>Save to your favorites (optional)</p>
+      </ol>
+    </div>
+  </div>
 
-  <p>This Python Flask application demonstrates App Engine Flexible, Google Cloud
-    Storage, Datastore, and the Cloud Vision API.</p>
-    
-    <br>
-
-  <body>
+  <div class="upload">
     <form action="upload_photo" method="POST" enctype="multipart/form-data">
       Upload File: <input type="file" name="file"><br>
       <input type="submit" name="submit" value="Submit">
@@ -24,7 +34,7 @@
     {% for things in stuff %}
       <li>{{ things }}</li>
     {% endfor %}
-  </body>
+  </div>
   
 </body>
 </html>

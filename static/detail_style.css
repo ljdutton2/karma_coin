@@ -82,6 +82,7 @@ font-size: 5em;
 body {
     background-color: rgb(252, 235, 220);
     font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
 }
 
 main {
@@ -123,6 +124,12 @@ main {
 }
 
 
+
+
+.ingredients > h2 {
+    margin: 5px;
+}
+
 .ingredients {
     text-align: left;
     margin: 5px;
@@ -134,10 +141,6 @@ main {
     border: 2px dotted;
     height: 500px;
     width: 100%;
-}
-
-.ingredients > h2 {
-    margin: 5px;
 }
 
 
