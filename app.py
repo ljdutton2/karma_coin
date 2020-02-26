@@ -44,7 +44,7 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 'Roasting', 'Green', 'Leaf', 'Corn kernels', 'Animal fat', 'Crocus', 'Flower', 'Nut', 'Leaf vegetable',
 'Herb', 'Grass']
 
-print(r.json())
+# print(r.json())
 #This returns the first label/tag based on topicality/closeness of what the image looks like
 if r.json()['responses'][0]['labelAnnotations'][0]['description'] not in labels:
     food_item = r.json()['responses'][0]['labelAnnotations'][0]['description']
@@ -56,7 +56,7 @@ url_s = 'https://api.spoonacular.com/recipes/findByIngredients'
 params_s = {
     'apiKey': SPOONACULAR_API_KEY,
     'number': 1,
-    'ingredients': 'apple'
+    'ingredients': food_item
     }
 s = requests.get(url_s, params=params_s)
 
@@ -68,9 +68,10 @@ params_s2 = {
     'apiKey': SPOONACULAR_API_KEY,
     }
 s_recipe = requests.get(url_s2, params=params_s2)
-print(s_recipe.json()[0]['steps'][0]['step'])
+# print(s_recipe.json())
+instructions = s_recipe.json()[0]['steps']
 
 
 @app.route('/')
 def home_page():
-    return render_template("base.html", stuff=food_item)
+    return render_template("base.html", stuff=food_item, instructions=instructions)

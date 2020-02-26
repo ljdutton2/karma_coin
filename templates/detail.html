@@ -1,13 +1,54 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecipEat</title>
+  <link href="/static/detail_style.css" rel="stylesheet">
 
-{% block content %}
-  <div class="row">
-    <div class="col m-4">
-      <h3>{{ page.title }} <small class="text-muted">Last updated {{ page.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ page.author.username }}</b></small></h3>
-      <hr>
-      <p>{{ page.content|linebreaksbr }}</p>
-      <hr>
-      <a href="{% url 'recipe-list-page' %}">Back to List</a>
+</head>
+
+
+<body>
+
+  <nav>
+    <div class="page_title">
+      <div>{{ stuff.title }}</div>
     </div>
-  </div>
-{% endblock %}
+    
+    <div class='dropdown'>
+        <button class='dropbtn'>menu</button>
+        <div class="dropdown-content">
+            <a href="/favorites">Favorites</a>
+            <a href="/upload">Upload</a>
+            <a href="/settings">Settings</a>
+        </div>
+    </div>
+  </nav>
+
+
+  <main>
+
+      <div class="left-side"> 
+        <div class="image">
+          {{ stuff.image }}
+
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="ingredients">
+          {{ stuff.ingredients }}
+          
+        </div>
+        <div class="recipe">
+          {{ stuff.recipe }}
+
+        </div>
+      </div>
+    
+  </main>
+
+  
+</body>
+</html>
