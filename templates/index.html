@@ -1,11 +1,21 @@
-<h1>Google Cloud Platform - Food Detection Sample</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecipEat</title>
+  <link href="/static/index_style.css" rel="stylesheet">
 
-<p>This Python Flask application demonstrates App Engine Flexible, Google Cloud
-Storage, Datastore, and the Cloud Vision API.</p>
+</head>
+<body>
 
-<br>
+  <h1>Google Cloud Platform - Food Detection Sample</h1>
 
-<html>
+  <p>This Python Flask application demonstrates App Engine Flexible, Google Cloud
+    Storage, Datastore, and the Cloud Vision API.</p>
+    
+    <br>
+
   <body>
     <form action="upload_photo" method="POST" enctype="multipart/form-data">
       Upload File: <input type="file" name="file"><br>
@@ -15,4 +25,6 @@ Storage, Datastore, and the Cloud Vision API.</p>
       <li>{{ things }}</li>
     {% endfor %}
   </body>
+  
+</body>
 </html>
