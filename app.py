@@ -80,5 +80,5 @@ ingredients = s_information.json()['extendedIngredients']
 
 @app.route('/')
 def home_page():
-    return render_template("base.html", stuff=food_item, instructions=instructions,
+    return render_template("favorites.html", stuff=food_item, instructions=instructions,
     ingredients=ingredients)
