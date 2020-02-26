@@ -52,6 +52,12 @@
                     {% endfor %}
               </p>
           </div>
+          <div class="textbox" aria-placeholder="recipe / ingredients">
+              <p class="card-text">{% for ingredient in ingredients %}
+                        {{ ingredient['original'] }} </br>
+                    {% endfor %}
+              </p>
+          </div>
       </div>
 
       {% endblock %}
