@@ -49,7 +49,7 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 if r.json()['responses'][0]['labelAnnotations'][0]['description'] not in labels:
     food_item = r.json()['responses'][0]['labelAnnotations'][0]['description']
 
-# print(food_item)
+print(food_item)
 
 ##### SPOONACULAR API #####
 url_s = 'https://api.spoonacular.com/recipes/findByIngredients'
