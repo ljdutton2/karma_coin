@@ -80,18 +80,25 @@ font-size: 5em;
 
 /* ********** BODY *********** */
 body {
-    background-color: rgb(252, 235, 220);
+    background-color: rgb(253, 207, 167);
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
 }
 
 main {
     background-color: rgba(230, 179, 136, 0.808);
+<<<<<<< Updated upstream
     font-family: Arial, Helvetica, sans-serif;
+=======
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     height: 1200px;
+<<<<<<< Updated upstream
+=======
+    margin: 20px;
+>>>>>>> Stashed changes
     padding: 20px;
 
 }
@@ -144,6 +151,13 @@ main {
     width: 100%;
 }
 
+<<<<<<< Updated upstream
+=======
+.ingredients > h2 {
+    margin: 5px;
+}
+
+>>>>>>> Stashed changes
 
 .recipe > h2 {
     margin: 5px;

@@ -39,6 +39,7 @@
       <div class="right-side">
         <div class="ingredients">
           <h2>Ingredients</h2>
+<<<<<<< Updated upstream
             
           {% for item in stuff.ingredients %}
             <li>item</li>
@@ -52,6 +53,18 @@
             <li>item</li>
           {% endfor %}
 
+=======
+          {% for item in stuff.ingredients %}
+            <li>{{ item }}</li>
+          {% endfor %}
+
+        </div>
+        <div class="recipe">
+          <h2>Recipe</h2>
+          {% for step in stuff.recipe %}
+            <li>{{ step }}</li>
+          {% endfor %}
+>>>>>>> Stashed changes
         </div>
       </div>
     
