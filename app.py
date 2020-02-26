@@ -72,10 +72,6 @@ s_recipe = requests.get(url_s2, params=params_s2)
 instructions = s_recipe.json()[0]['steps']
 
 
-print(instructions)
-s_image = s_recipe
-
-
 @app.route('/')
 def home_page():
     return render_template("base.html", stuff=food_item, instructions=instructions)
