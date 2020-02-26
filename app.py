@@ -49,7 +49,7 @@ labels = ['Food', 'Junk food', 'Dish', 'Cuisine', 'Fast food', 'Ingredient', 'Me
 if r.json()['responses'][0]['labelAnnotations'][0]['description'] not in labels:
     food_item = r.json()['responses'][0]['labelAnnotations'][0]['description']
 
-print(food_item)
+# print(food_item)
 
 ##### SPOONACULAR API #####
 url_s = 'https://api.spoonacular.com/recipes/findByIngredients'
@@ -70,8 +70,15 @@ params_s2 = {
 s_recipe = requests.get(url_s2, params=params_s2)
 # print(s_recipe.json())
 instructions = s_recipe.json()[0]['steps']
-
+url_s3 = f'https://api.spoonacular.com/recipes/{id}/information'
+params_s3 = {
+    'apiKey': SPOONACULAR_API_KEY,
+    }
+s_information = requests.get(url_s3, params=params_s3)
+ingredients = s_information.json()['extendedIngredients']
+# print(ingredients)
 
 @app.route('/')
 def home_page():
-    return render_template("base.html", stuff=food_item, instructions=instructions)
+    return render_template("base.html", stuff=food_item, instructions=instructions,
+    ingredients=ingredients)
