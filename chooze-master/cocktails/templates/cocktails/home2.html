@@ -1,0 +1,57 @@
+{% extends 'cocktails/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+</head>
+
+<body id="page-top">
+    <body>
+        {% block content %}
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom mb-5" >
+            <div class="container"><a class="navbar-brand" href="#">Cb</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Sign Up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <header class="masthead" style="background-image:url(/img/header-bg.jpg');"></header>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                   
+                    
+                <div class="col-lg-12 text-center mt-5" style="height: 306px;"><img src= "{{ image }}" style="height: 500px;width: 500px;">
+                    <h2 class="text-uppercase section-heading" style="color: rgb(112,12,10);font-size: 52px;font-family: Montserrat, sans-serif;">{{name}}</h2>
+                    <h1 style="color: rgb(112,12,10);font-size: 33px;">Ingredients: {{ing1}}, {{ing2}}, {{ing3}}, {{ing4}}, {{ing5}}</h1>
+                    <h3 class="text-muted section-subheading" style="color: rgb(1,9,17);font-size: 29px;">{{instructions}}</h3>
+                  <!--- CHANGE ACTION TO ... -->
+                  <form action="saved/" method="POST">
+                    {% csrf_token %}
+                    <button>Save Drink</button>
+                        
+                    <input type="hidden"  value= "{{name}}">
+                    
+                    </form>
+                 
+  
+                     
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock %}
+</body>
+
+</html>
+                

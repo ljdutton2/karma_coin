@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cocktails/cocktails.css' %}" type=text>
+</head>
+<body>
+<h2>
+   My Cocktails
+</h2>
+{% csrf_token %}
+{% block content %}
+{% if drinks %}
+{% for drink in drinks %}
+ <h1> {{ drink.strDrink }} </h1 > </br>
+{% endfor %}
+{% else %}
+<p>None found </p>
+{% endif %}
+{%endblock%}
+</body>
+</html>

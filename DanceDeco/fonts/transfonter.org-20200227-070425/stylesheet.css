@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'UpperEastSide';
+    src: url('UpperEastSide.woff2') format('woff2'),
+        url('UpperEastSide.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
