@@ -25,10 +25,7 @@ contract Karma {
 	function getBalance(address addr) public view returns(uint) {
 		return balances[addr];
 	}
-    
-}
 
-contract Neighbors {
     //claim a task
 address[16] public neighbors;
 

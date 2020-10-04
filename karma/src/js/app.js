@@ -9,10 +9,11 @@ App = {
       var taskTemplate = $('#taskTemplate');
 
       for (i = 0; i < data.length; i ++) {
-        taskTemplate.find('.panel-title').text(data[i].title);
-        taskTemplate.find('.task-date').text(data[i].date);
-        taskTemplate.find('.task-value').text(data[i].value);
-        taskTemplate.find('.task-distance').text(data[i].distance);
+        taskTemplate.find('.title').text(data[i].title);
+        taskTemplate.find('.date').text(data[i].date);
+        taskTemplate.find('.value').text(data[i].value);
+        taskTemplate.find('.distance').text(data[i].distance);
+        taskTemplate.find('.btn-claim').attr('data-id', data[i].id);
 
         tasksRow.append(taskTemplate.html());
       }
