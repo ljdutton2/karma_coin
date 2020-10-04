@@ -47,36 +47,36 @@ web3 = new Web3(App.web3Provider);
   },
 
   initContract: function() { 
-    $.getJSON('Neighbors.json', function(data) {
+    $.getJSON('Karma.json', function(data) {
       // Get the necessary contract artifact file and instantiate it with @truffle/contract
-      var NeighborsArtifact = data;
-      App.contracts.Neighbors = TruffleContract(NeighborsArtifact);
+      var KarmaArtifact = data;
+      App.contracts.Karma = TruffleContract(KarmaArtifact);
     
       // Set the provider for our contract
-      App.contracts.Neighbors.setProvider(App.web3Provider);
+      App.contracts.Karma.setProvider(App.web3Provider);
     
       // Use our contract to retrieve and mark the adopted tasks
-      return App.markAdopted();
+      return App.markClaimed();
     });
 
     return App.bindEvents();
   },
 
   bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
+    $(document).on('click', '.btn-claim', App.handleClaim);
   },
 
-  markAdopted: function() {
-    var NeighborsInstance;
+  markClaimed: function() {
+    var KarmaInstance;
 
-App.contracts.Neighbors.deployed().then(function(instance) {
-  NeighborsInstance = instance;
+App.contracts.Karma.deployed().then(function(instance) {
+  KarmaInstance = instance;
 
-  return NeighborsInstance.getAdopters.call();
-}).then(function(adopters) {
-  for (i = 0; i < adopters.length; i++) {
-    if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-      $('.panel-task').eq(i).find('button').text('Success').attr('disabled', true);
+  return KarmaInstance.getKarma.call();
+}).then(function(Karma) {
+  for (i = 0; i < Karma.length; i++) {
+    if (Karma[i] !== '0x0000000000000000000000000000000000000000') {
+      $('.panel-task').eq(i).find('button').text('Claimed').attr('disabled', true);
     }
   }
 }).catch(function(err) {
@@ -84,12 +84,13 @@ App.contracts.Neighbors.deployed().then(function(instance) {
 });
   },
 
-  handleAdopt: function(event) {
+  handleClaim: function(event) {
     event.preventDefault();
 
     var taskId = parseInt($(event.target).data('id'));
 
-    var NeighborsInstance;
+    var KarmaInstance;
+    
 
 web3.eth.getAccounts(function(error, accounts) {
   if (error) {
@@ -98,15 +99,10 @@ web3.eth.getAccounts(function(error, accounts) {
 
   var account = accounts[0];
 
-  App.contracts.Neighbors.deployed().then(function(instance) {
-    NeighborsInstance = instance;
+  App.contracts.Karma.deployed().then(function(instance) {
+    KarmaInstance = instance;
 
-    // Execute adopt as a transaction by sending account
-    return NeighborsInstance.adopt(taskId, {from: account});
-  }).then(function(result) {
-    return App.markAdopted();
-  }).catch(function(err) {
-    console.log(err.message);
+  
   });
 });
 

@@ -1,5 +1,6 @@
 pragma solidity ^0.5.0;
 import "./ConvertLib.sol";
+
 contract Karma {
 	mapping (address => uint) balances;
 
@@ -24,6 +25,7 @@ contract Karma {
 	function getBalance(address addr) public view returns(uint) {
 		return balances[addr];
 	}
+    
 }
 
 contract Neighbors {
