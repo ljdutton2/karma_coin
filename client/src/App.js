@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-class App extends Component {
-  state = { loading: true, drizzleState: null };
-componentDidMount() {
-    const { drizzle } = this.props;
-// subscribe to changes in the store
-    this.unsubscribe = drizzle.store.subscribe(() => {
-// every time the store updates, grab the state from drizzle
-      const drizzleState = drizzle.store.getState();
-// check to see if it's ready, if so, update local component state
-      if (drizzleState.drizzleStatus.initialized) {
-        this.setState({ loading: false, drizzleState });
-      }
-    });
-  }
-compomentWillUnmount() {
-    this.unsubscribe();
-  }
-render() {
-    if (this.state.loading) return "Loading Drizzle...";
-    return <div className="App">Drizzle is ready</div>;
-  }
+import Web3Info from './components/Web3Info.js';
+import { useWeb3 } from '@openzeppelin/network/react';
+
+const infuraProjectId = '95202223388e49f48b423ea50a70e336';
+
+
+
+function App() {
+
+  const web3Context = useWeb3(`wss://mainnet.infura.io/ws/v3/${infuraProjectId}`);
+  const { networkId, networkName, providerName } = web3Context;
+
+  return (
+    <div className="App">
+      <div>
+        <h1>OpenZeppelin Network.js</h1>
+          <Web3Info title="Web3 Info" web3Context={web3Context} />
+      </div>
+  </div>
+  );
 }
+
 export default App;
