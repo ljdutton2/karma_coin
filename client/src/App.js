@@ -5,8 +5,6 @@ import { useWeb3 } from '@openzeppelin/network/react';
 
 const infuraProjectId = '95202223388e49f48b423ea50a70e336';
 
-
-
 function App() {
 
   const web3Context = useWeb3(`wss://mainnet.infura.io/ws/v3/${infuraProjectId}`);
@@ -15,8 +13,10 @@ function App() {
   return (
     <div className="App">
       <div>
-        <h1>OpenZeppelin Network.js</h1>
+        <h1>Karma Coin</h1>
           <Web3Info title="Web3 Info" web3Context={web3Context} />
+          <h2> {address} </h2>
+          c
       </div>
   </div>
   );
